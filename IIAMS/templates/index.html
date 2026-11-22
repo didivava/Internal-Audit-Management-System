@@ -1,0 +1,76 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fb">
+    <title>Northstar Audit | Internal audit management</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#" aria-label="Northstar Audit home" data-page="dashboard">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+          <span class="brand-copy"><strong>northstar</strong><small>INTERNAL AUDIT</small></span>
+        </a>
+
+        <div class="workspace-label">WORKSPACE</div>
+        <nav class="main-nav" aria-label="Main navigation">
+          <button class="nav-link active" data-page="dashboard"><span class="nav-icon">◫</span>Overview</button>
+          <button class="nav-link" data-page="audits"><span class="nav-icon">▤</span>Audit plan <span class="nav-count" id="audit-count"></span></button>
+          <button class="nav-link" data-page="findings"><span class="nav-icon">◎</span>Findings <span class="nav-count" id="finding-count"></span></button>
+          <button class="nav-link" data-page="actions"><span class="nav-icon">↗</span>Action tracking <span class="nav-count" id="action-count"></span></button>
+          <button class="nav-link" data-page="risks"><span class="nav-icon">⌁</span>Risk register</button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="help-card">
+            <div class="help-icon">✳</div>
+            <strong>Need a hand?</strong>
+            <p>Your audit workspace, all in one place.</p>
+            <button class="text-button" data-page="settings">Workspace guide <span>→</span></button>
+          </div>
+          <div class="profile">
+            <div class="avatar">JD</div>
+            <div class="profile-copy"><strong>Jordan Davis</strong><small>Audit manager</small></div>
+            <button class="icon-button profile-menu" data-page="settings" aria-label="Open workspace guide">···</button>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <button class="menu-toggle icon-button" id="menu-toggle" aria-label="Toggle navigation">☰</button>
+          <div class="breadcrumbs"><span>Workspace</span><span class="crumb-divider">/</span><strong id="breadcrumb-current">Overview</strong></div>
+          <div class="topbar-actions">
+            <label class="search-wrap">
+              <span aria-hidden="true">⌕</span>
+              <input id="global-search" type="search" placeholder="Search anything..." aria-label="Search current view">
+              <kbd>⌘ K</kbd>
+            </label>
+            <button class="icon-button notification-button" aria-label="Notifications" title="Notifications">♧<i></i></button>
+            <div class="avatar top-avatar" aria-label="Jordan Davis">JD</div>
+          </div>
+        </header>
+
+        <div class="page-content">
+          <section class="page-view active" id="view-dashboard" data-view="dashboard"></section>
+          <section class="page-view" id="view-audits" data-view="audits"></section>
+          <section class="page-view" id="view-findings" data-view="findings"></section>
+          <section class="page-view" id="view-actions" data-view="actions"></section>
+          <section class="page-view" id="view-risks" data-view="risks"></section>
+          <section class="page-view" id="view-settings" data-view="settings"></section>
+        </div>
+        <footer class="footer"><span>Northstar Audit</span><span>Secure workspace · Demo data is stored in this browser</span></footer>
+      </main>
+    </div>
+
+    <dialog id="form-dialog" class="form-dialog" aria-labelledby="dialog-title">
+      <div id="dialog-content"></div>
+    </dialog>
+    <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+    <script src="{% static 'app.js' %}"></script>
+  </body>
+</html>

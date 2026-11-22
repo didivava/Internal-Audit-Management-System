@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "northstar-audit"
+version = "0.1.0"
+description = "Internal audit management application"
+requires-python = ">=3.12,<3.15"
+dependencies = [
+    "Django>=5.2,<6.0",
+    "djangorestframework>=3.16,<4.0",
+    "gunicorn>=23,<24",
+    "mozilla-django-oidc>=4.0,<5.0",
+    "psycopg[binary]>=3.2,<4",
+    "whitenoise>=6.9,<7",
+]
+
+[tool.setuptools.packages.find]
+include = ["accounts*", "audit_platform*", "core*"]
